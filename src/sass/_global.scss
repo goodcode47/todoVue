@@ -1,0 +1,16 @@
+@use "_variables" as *;
+
+body {
+  margin: 0;
+  font-family: "Kanit", "Arial", sans-serif;
+  font-size: 20px;
+  line-height: 26px;
+}
+
+.dark-theme {
+  background-color: $default-black;
+}
+
+.dark-theme .themeChange {
+  background-image: url("/images/light.svg");
+}
