@@ -12,7 +12,6 @@
   font-size: 26px;
   line-height: 34px;
   font-weight: 700;
-  line-height: 30px;
   text-align: center;
   text-transform: uppercase;
 }
