@@ -129,13 +129,18 @@ const handleToggleTodo = (id: number) => {
       />
       <Button class="app__themeChange" @click="toggleTheme" />
     </nav>
-
-    <Todo
-      :todos="filteredTodos"
-      @toggle="handleToggleTodo"
-      @edit="handleModalOpen('edit', $event)"
-      @delete="handleDeleteTodo"
-    />
+    <div v-if="filteredTodos.length > 0">
+      <Todo
+        :todos="filteredTodos"
+        @toggle="handleToggleTodo"
+        @edit="handleModalOpen('edit', $event)"
+        @delete="handleDeleteTodo"
+      />
+    </div>
+    <div v-else class="app__empty">
+      <img src="/images/empty.png" alt="No todos" class="app__empty-image" />
+      <p class="app__empty-text">Empty...</p>
+    </div>
 
     <button class="app__add" @click="handleModalOpen('add')"></button>
   </main>
@@ -178,6 +183,19 @@ const handleToggleTodo = (id: number) => {
 
 .dark-theme .app__themeChange {
   background-image: url("/images/light.svg");
+}
+
+.app__empty {
+  width: 221px;
+  margin: 70px auto 0;
+}
+
+.app__empty-text {
+  text-align: center;
+}
+
+.dark-theme .app__empty-text {
+  color: $default-white;
 }
 
 .app__add {
